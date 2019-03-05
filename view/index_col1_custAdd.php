@@ -10,32 +10,47 @@
                 <h3>Preferences</h3>
                 <input id="priority" type="checkbox" name="priority" value="True"/> Priority
                 <input id="priorityHidden" type="hidden" name="priority" value="False"/>
-                </br>
+                <br/>
             </div>
         </div>
         <!--                    CUSTOMER TYPE       -->
         <div class="row">
-            <div class="col-50">
+            <div class="col-25">
                 <h3>Booking Time</h3>
                 <input type="radio" id="time_now" name="time" value="" checked="checked"/> ASAP
 
-                </br>
+                <br/>
 
-                <input type="radio" id="time_booking" name="time" value="bookTime""/> Choose different time:
+                <input type="radio" id="time_booking" name="time" value="bookTime""/> Choose time:
                 <span id="time"></span>
                 <span id="bookingTime"></span>
             </div>
-            <div class="col-50">
+            <div class="col-25">
                 <h3>Customer Type</h3>
                 <input type="radio" id="desired_place_button" name="pickup" value="desiredPlace" checked="checked"/>
                 Desired Place
-
-                </br>
-
+                <br/>
                 <input type="radio" id="pick_branch" name="pickup" value="branch"/> Branch
             </div>
+            <div class="col-25">
+                <h3>Payment Type</h3>
+                <input type="radio" name="payment" id="paymentCash" checked="checked"/> Cash
+                <br/>
+                <input type="radio" name="payment" id="paymentCard"/> Card
+            </div>
         </div>
-
+        <div id="cardPayment" style="display:none">
+            <h3>Payment Details</h3>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="1111 2222 3333 4444"/>
+            <div class="row">
+                <div class="col-50">
+                <input type="text" id="cardType" name="cardType" placeholder="Visa Mastercard"/>
+                </div>
+                <div class="col-50">
+                    <input type="text" id="cardExpiry" name="cardExpiry" placeholder="01/17"/>
+                </div>
+            </div>
+        </div>
         <!--                    FROM ADDRESS        -->
         <div id="addressFrom">
             <h3>From:</h3>

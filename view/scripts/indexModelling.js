@@ -25,9 +25,28 @@ $(document).ready(function () {
         $('#confirm').prop('readonly', false);
         // $('#').val();
     });
+
+    // animate the Form address at index.php
     $('#pick_branch').click(function () {
         $('#addressFrom').animate({
             height: 'toggle'
+        });
+    });
+
+    $('#desired_place_button').click(function () {
+        $('#addressFrom').animate({
+            height: 'show'
+        });
+    });
+    $('#paymentCash').click(function () {
+        $('#cardPayment').animate({
+            height: 'toggle'
+        });
+    });
+
+    $('#paymentCard').click(function () {
+        $('#cardPayment').animate({
+            height: 'show'
         });
     });
 
@@ -37,9 +56,15 @@ $(document).ready(function () {
         $('#name').text("");
 
         // buttons
-        $('input[name=time][id=time_now]').prop('checked',true);
-        $('input[name=pickup][id=desired_place_button]').prop('checked',true);
-        $('#priority').prop('checked',false);
+        $('input[name=payment][id=paymentCash]').prop('checked', true);
+        $('input[name=time][id=time_now]').prop('checked', true);
+        $('input[name=pickup][id=desired_place_button]').prop('checked', true);
+        $('#priority').prop('checked', false);
+
+        //payment details
+        $('#cardNumber').val("");
+        $('#cardExpiry').val("");
+        $('#cardType').val("");
 
         //from
         $('#houseNumber').val("");
@@ -59,29 +84,43 @@ $(document).ready(function () {
         });
     }
 
+    $('input[name=payment][id=paymentCash]').change(function() {
+        $("#addCustomerForm").validate({
+           rules: {
+               cardNumber: {
+                   required : false
+               },
+               cardExpiry: {
+                   required : false
+               },
+               cardType: {
+                   required : false
+               }
+           }
+        });
+    });
     $("#addCustomerForm").validate({
         rules: {
             name: "required",
             time: "required",
             pickup: "required",
+            payment: "required",
+            cardNumber: "required",
+            cardType: "required",
+            catdExpiry: "required",
             houseNumber: "required",
-            postcode:"required",
-            street:"required",
-            city:"required",
-            toHouseNumber:"required",
-            toPostcode:"required",
-            toStreet:"required",
-            toCity:"required"
-        // },
-        // messages: {
-        //     // houseNumber: ""
-        }
-    });
+            postcode: "required",
+            street: "required",
+            city: "required",
+            toHouseNumber: "required",
+            toPostcode: "required",
+            toStreet: "required",
+            toCity: "required"
 
-    $('#desired_place_button').click(function () {
-        $('#addressFrom').animate({
-            height: 'show'
-        });
+            // },
+            // messages: {
+            //     // houseNumber: ""
+        }
     });
     $('#time_booking').click(function () {
         $('#time_booking').timepicker({
@@ -113,8 +152,8 @@ $(document).ready(function () {
 //    Form modelling. Making sure Database is updated without refreshing the page
 
 
-    $('#addCustomerSubmitButton').click(function() {
-        if($('#addCustomerForm').valid()) {
+    $('#addCustomerSubmitButton').click(function () {
+        if ($('#addCustomerForm').valid()) {
             var data = $("#addCustomerForm").serialize();
             $.ajax({
                 data: data,
@@ -128,7 +167,7 @@ $(document).ready(function () {
                     $('#success-message-displayed').text(data);
 
                     // set timeout for displayed success message
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('.success-outer-div').fadeOut('fast');
                     }, 5000); // <-- time in milliseconds
                     clearAddCustomerFields();
@@ -141,11 +180,11 @@ $(document).ready(function () {
     // When the user clicks anywhere  outside the 'success message' model
     // close the window
     // Get the modal
-    $(document).mouseup(function(e){
+    $(document).mouseup(function (e) {
         var container = $(".success-outer-div");
 
         // If the target of the click isn't the container
-        if(!container.is(e.target) && container.has(e.target).length === 0){
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
             container.hide();
         }
     });

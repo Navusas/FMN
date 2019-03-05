@@ -13,7 +13,7 @@ class Journey extends DAO {
     {
         parent::__construct($this->table);
     }
-    public function addNewJourney($time,$date, $pickup, $priority, $from_houseNo,$from_street,$from_city,$from_postcode,
+    public function addNewJourney($time,$date, $pickup, $priority, $payment, $from_houseNo,$from_street,$from_city,$from_postcode,
                                   $dest_houseNo,$dest_street,$dest_city,$dest_postcode) {
         $from = $from_houseNo . ", " . $from_street . ", ". $from_city . ", " . $from_postcode;
         $to = $dest_houseNo . ", " . $dest_street . ", ". $dest_city . ", " . $dest_postcode;

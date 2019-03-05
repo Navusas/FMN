@@ -4,15 +4,16 @@
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    background-color:greenyellow;
-    width:600px;
+    background-color: greenyellow;
+    width: 600px;
     text-align: center;
     vertical-align: middle;
     display: none;
     border-radius: 4px;
     border: #1e7e34 solid 1px;
-    height:70px;
+    height: 70px;
 }
+
 #success-message-displayed {
     vertical-align: middle;
     font-weight: 500;
@@ -77,9 +78,10 @@
     transition: 0.2s;
     width: 100px;
 }
+
 .newCustomerForm .confirm:disabled {
-    background-color:grey;
-    cursor:no-drop;
+    background-color: grey;
+    cursor: no-drop;
 }
 
 .newCustomerForm .confirm:hover {
@@ -132,6 +134,11 @@
     flex: 25%;
 }
 
+.col-third {
+    -ms-flex: 33%;
+    flex: 33%;
+}
+
 .col-50 {
     -ms-flex: 50%; /* IE10 */
     flex: 50%;
@@ -152,6 +159,7 @@ label {
     margin-bottom: 10px;
     display: block;
 }
+
 /*TABLE*/
 
 .js-pscroll {
@@ -357,8 +365,9 @@ th, td {
 
 /*To handle index_col1_custAdd.php jquerry validation (make the invalid text label red)*/
 .error {
-    color:red;
+    color: red;
 }
+
 /*.valid {*/
-    /*color:green;*/
+/*color:green;*/
 /*}*/
