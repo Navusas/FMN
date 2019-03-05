@@ -13,13 +13,13 @@ class Journey extends DAO {
     {
         parent::__construct($this->table);
     }
-    public function addNewJourney($time,$date, $pickup, $priority, $payment, $from_houseNo,$from_street,$from_city,$from_postcode,
+    public function addNewJourney($time,$date, $name, $pickup, $priority, $payment, $from_houseNo,$from_street,$from_city,$from_postcode,
                                   $dest_houseNo,$dest_street,$dest_city,$dest_postcode) {
         $from = $from_houseNo . ", " . $from_street . ", ". $from_city . ", " . $from_postcode;
         $to = $dest_houseNo . ", " . $dest_street . ", ". $dest_city . ", " . $dest_postcode;
         $newID = $this->getLastID()+1;
 //        echo "_____________________    " . $newID ."_____________________    ";
-        $query = 'INSERT INTO ' . $this->table . ' VALUES(' . $newID . ',"' . $from . '","' . $to . '",' .
+        $query = 'INSERT INTO ' . $this->table . ' VALUES(' . $newID . ',"' . $name . '","' . $from . '","' . $to . '",' .
             50 . ',"' . $date . '",TIME("' . $time .'"))';
 
         $result = parent::query($query) or die(parent::getConnection()->getConnection()->error);

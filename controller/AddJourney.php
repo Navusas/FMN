@@ -32,6 +32,7 @@ if (isset($_REQUEST)) {
      * Date: 2019-03-04
      * Time: 14:54
      */
+    $name = $_POST['name'];
     $time = $_POST['time'];
     $date = date('Y-m-d');
     if ($time == "") {
@@ -63,7 +64,7 @@ if (isset($_REQUEST)) {
 
 
     $journey = new Journey();
-    $journey->addNewJourney($time, $date, $pickup, $priority, $payment, $from_houseNo, $from_street, $from_city, $from_postcode,
+    $journey->addNewJourney($time, $date, $name, $pickup, $priority, $payment, $from_houseNo, $from_street, $from_city, $from_postcode,
         $dest_houseNo, $dest_street, $dest_city, $dest_postcode);
 }
 ?>
