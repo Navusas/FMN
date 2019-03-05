@@ -37,7 +37,7 @@ class DAO extends Connection {
     /**
      * @return Connection
      */
-    public function getConnection(): Connection
+    public function getConnection()
     {
         return $this->connection;
     }

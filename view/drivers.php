@@ -1,5 +1,6 @@
 <?php
 include("../dao/drivers.php");
+$GLOBALS['drivers'] = new Drivers();
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,9 +37,9 @@ include("../dao/drivers.php");
                     </thead>
                 </table>
             </div>
+            <?php include('../controller/load_drivers.php'); ?>
         </div>
     </div>
-    <!--    Footer!    -->
     <!--    Footer!    -->
     <?php include('include_structure/footer.php'); ?>
 </body>

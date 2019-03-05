@@ -9,15 +9,16 @@ require 'DAO.php';
  */
 class Drivers extends DAO
 {
-    private $table = "journey";
-    private $idFieldName = 'id';
+    private $table = "driver";
+    private $idFieldName = 'ID';
 
     public function __construct()
     {
         // establish connection
         parent::__construct($this->table);
-        $message = "Connection successful";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        $message = "Connection between PHP and MySQL is succesfull!." .
+                    "You can start retrieving data";
+//        echo "<script type='text/javascript'>alert('$message');</script>";
 
     }
 
@@ -31,6 +32,32 @@ class Drivers extends DAO
     {
         return parent::getAll();
     }
+    public function getVehicle($employee_id) {
+        $table = 'vehicle';
+        $result = parent::query('SELECT *
+                                      FROM ' . $table .  '
+                                      WHERE Driver_ID = ' . $employee_id)->fetch_object()  or die(parent::getConnection()->getConnection()->error);
+        return $result;
+    }
+    public function getEmployeeInfo($employee_id)
+    {
+        $table = 'employee';
+        $result = parent::query('SELECT *
+                                      FROM ' . $table . '
+                                      WHERE ID = ' . $employee_id)->fetch_object() or die(parent::getConnection()->getConnection()->error);
+        return $result;
+    }
+
+    public function isAvailable($employee_id) {
+        $result = parent::query('SELECT available
+                                      FROM ' . $this->table . '
+                                      WHERE ID = ' . $employee_id)->fetch_object() or die(parent::getConnection()->getConnection()->error);
+        if($result === 0) {
+            return "YES";
+        }
+        else return "NO";
+    }
+
 }
 //    public function outputAll()
 //    {
