@@ -34,6 +34,7 @@ $(document).ready(function () {
     function clearAddCustomerFields() {
         // time value form booking time
         $('#time').text("");
+        $('#name').text("");
 
         // buttons
         $('input[name=time][id=time_now]').prop('checked',true);
@@ -60,6 +61,7 @@ $(document).ready(function () {
 
     $("#addCustomerForm").validate({
         rules: {
+            name: "required",
             time: "required",
             pickup: "required",
             houseNumber: "required",
@@ -70,9 +72,9 @@ $(document).ready(function () {
             toPostcode:"required",
             toStreet:"required",
             toCity:"required"
-        },
-        messages: {
-            // houseNumber: ""
+        // },
+        // messages: {
+        //     // houseNumber: ""
         }
     });
 

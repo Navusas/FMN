@@ -1,17 +1,30 @@
 <form id="addCustomerForm" method="POST">
     <div class="newCustomerForm">
-        <div>
-            <h3>Booking Time</h3>
-            <input type="radio" id="time_now" name="time" value="" checked="checked"/> ASAP
 
-            </br>
-
-            <input type="radio" id="time_booking" name="time" value="bookTime""/> Choose different time:
-            <span id="time"></span>
-            <span id="bookingTime"></span>
+        <div class="row">
+            <div class="col-50">
+                <h3>Name</h3>
+                <input type="text"  name="name" id="name" placeholder="Booking Name" required/>
+            </div>
+            <div class="col-50">
+                <h3>Preferences</h3>
+                <input id="priority" type="checkbox" name="priority" value="True"/> Priority
+                <input id="priorityHidden" type="hidden" name="priority" value="False"/>
+                </br>
+            </div>
         </div>
         <!--                    CUSTOMER TYPE       -->
         <div class="row">
+            <div class="col-50">
+                <h3>Booking Time</h3>
+                <input type="radio" id="time_now" name="time" value="" checked="checked"/> ASAP
+
+                </br>
+
+                <input type="radio" id="time_booking" name="time" value="bookTime""/> Choose different time:
+                <span id="time"></span>
+                <span id="bookingTime"></span>
+            </div>
             <div class="col-50">
                 <h3>Customer Type</h3>
                 <input type="radio" id="desired_place_button" name="pickup" value="desiredPlace" checked="checked"/>
@@ -20,12 +33,6 @@
                 </br>
 
                 <input type="radio" id="pick_branch" name="pickup" value="branch"/> Branch
-            </div>
-            <div class="col-50">
-                <h3>Preferences</h3>
-                <input id="priority" type="checkbox" name="priority" value="True"/> Priority
-                <input id="priorityHidden" type="hidden" name="priority" value="False"/>
-                </br>
             </div>
         </div>
 

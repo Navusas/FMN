@@ -355,3 +355,10 @@ th, td {
     background-color: #cccccc;
 }
 
+/*To handle index_col1_custAdd.php jquerry validation (make the invalid text label red)*/
+.error {
+    color:red;
+}
+/*.valid {*/
+    /*color:green;*/
+/*}*/
