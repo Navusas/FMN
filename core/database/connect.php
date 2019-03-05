@@ -1,6 +1,11 @@
 <?php
-$connect = new mysqli('localhost','root','root','algoritmai_users');
- mysqli_set_charset($connect,"utf8");
-session_start();
+try{
+    $conn = new PDO('mysql:host=localhost;dbname=u1751546', 'u1751546', '03jan98');
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+}
+catch (PDOException $exception)
+{
+	echo "Oh no, there was a problem" . $exception->getMessage();
+}
 
 ?>
