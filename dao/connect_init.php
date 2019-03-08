@@ -7,7 +7,7 @@ class Connection
     private $host = "localhost";
     private $user = "root";
     private $pass = "";
-    private $db = "fmn";
+    private $db = "taxifriend";
 
     public function __construct()
     {

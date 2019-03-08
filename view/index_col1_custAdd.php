@@ -34,9 +34,9 @@
             </div>
             <div class="col-25">
                 <h3>Payment Type</h3>
-                <input type="radio" name="payment" id="paymentCash" checked="checked"/> Cash
+                <input type="radio" name="payment" id="paymentCash" checked="checked" value="Cash"/> Cash
                 <br/>
-                <input type="radio" name="payment" id="paymentCard"/> Card
+                <input type="radio" name="payment" id="paymentCard" value="Card"/> Card
             </div>
         </div>
         <div id="cardPayment" style="display:none">
