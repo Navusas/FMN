@@ -51,9 +51,11 @@ $(document).ready(function () {
     });
 
     function clearAddCustomerFields() {
+        //name
+        $('#name').val("");
+
         // time value form booking time
         $('#time').text("");
-        $('#name').text("");
 
         // buttons
         $('input[name=payment][id=paymentCash]').prop('checked', true);
@@ -81,6 +83,9 @@ $(document).ready(function () {
         // show the FROM address again
         $('#addressFrom').animate({
             height: 'show'
+        });
+        $('#cardPayment').animate({
+           height:'hide'
         });
     }
 
@@ -143,10 +148,10 @@ $(document).ready(function () {
 //    Disable checkbox before sending it to PHP file to avoid error
     // as if checkbox is not checked before submitting the form
     // it will produce an error on next page
-
-    if (document.getElementById("priority").checked) {
-        document.getElementById('priorityHidden').disabled = true;
-    }
+    //
+    // if (document.getElementById("priority").checked) {
+    //     document.getElementById('priorityHidden').disabled = true;
+    // }
 
 
 //    Form modelling. Making sure Database is updated without refreshing the page

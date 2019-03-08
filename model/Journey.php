@@ -14,22 +14,30 @@ class Journey extends DAO {
     {
         parent::__construct($this->table);
     }
-    public function addToQueue($time,$date, $name, $miles, $pickup, $priority, $payment,
+    public function addToQueue($time,$date, $name, $miles, $priority, $payment,
                                   $from_houseNo,$from_street,$from_city,$from_postcode,
-                                  $dest_houseNo,$dest_street,$dest_city,$dest_postcode) {
+                                  $dest_houseNo,$dest_street,$dest_city,$dest_postcode,
+                                  $cardNumber, $cardType, $cardExpiry) {
 
+        // Concatenate addresses into 1 string name
         $from = $from_houseNo . ", " . $from_street . ", ". $from_city . ", " . $from_postcode;
         $to = $dest_houseNo . ", " . $dest_street . ", ". $dest_city . ", " . $dest_postcode;
-
-        $lastID = $this->getLastID($this->table, $this->idField)+1;
-        echo $lastID;
 
         // add a Journey FIrst
         $journeyID = $this->addJourney($miles,$date,$time,$from,$to,$priority);
         // Make a relationship between payment and Journey
-//        $paymentQuery = $this->addPayment($journeyID, $miles, $date, $payment);
+        $paymentQuery = $this->addPayment($journeyID, $miles, $date, $payment);
 
-        if (1) {
+        // add a Customer
+        $newCustomer = $this->addCustomer($name);
+
+        if($payment == "Card") {
+            $this->addCardPayment($paymentQuery, $cardNumber,$cardType,$cardExpiry);
+        }
+        else {
+            $this->addCashPayment($paymentQuery);
+        }
+        if ($paymentQuery == true && $newCustomer == true) {
             echo "New Journey Added Successfully!";
 
 //            echo "The Booking has been made for: " . $time . " " . $date .
@@ -37,6 +45,22 @@ class Journey extends DAO {
 //                "To: " . $to;
         }
         else echo "Unexpected Error Occurred. Booking have not been made!";
+    }
+    private function addCardPayment($paymentID,$cardNumber,$cardType,$cardExpiry) {
+        $table = "cardpayment";
+        $lastID = $this->getLastID($table, $this->idField)+1;
+        $query = 'INSERT INTO ' . $table .
+                 ' VALUES(' . $lastID .',' . $paymentID . ',"' . $cardNumber .
+                    '","' . $cardType . '","' . $cardExpiry . '");';
+        $result = parent::query($query) or die(parent::getConnection()->getConnection()->error);
+    }
+    private function addCashPayment($paymentID) {
+        $table = "cashpayment";
+        $lastID = $this->getLastID($table, $this->idField)+1;
+        $query = 'INSERT INTO ' . $table .
+            ' VALUES(' . $lastID .',' . $paymentID . ');';
+        $result = parent::query($query) or die(parent::getConnection()->getConnection()->error);
+
     }
     private function addJourney($miles, $date, $time, $from, $to, $priority) {
         $table = "journey";
@@ -56,9 +80,24 @@ class Journey extends DAO {
         $lastID = $this->getLastID($table, $this->idField)+1;
         $query = 'INSERT INTO ' . $table .
                 ' VALUES(' . $lastID . ',' . $journeyID . ',' . $amountToPay . ',"' . $date . '",(' .
-                'SELECT ' . $this->idField .
-                'FROM paymenttype' .
-                'WHERE Description = ' . $paymentType . '));';
+                ' SELECT ID ' .
+                ' FROM typeofpayment'  .
+                ' WHERE Description = "' . $paymentType . '"));';
+        $result = parent::query($query) or die(parent::getConnection()->getConnection()->error);
+        if($result >= 0) {
+            return $lastID;
+        }
+        else return -1;
+    }
+    public function addCustomer($name) {
+        $table = "customer";
+        $lastID = $this->getLastID($table, $this->idField)+1;
+        $query = 'INSERT INTO ' . $table .
+            ' VALUES(' . $lastID . ',"' . $name . '", (' .
+            'SELECT ' . $this->idField .
+            ' FROM customertype' .
+            ' WHERE Description = "Branch"));';
+
         $result = parent::query($query) or die(parent::getConnection()->getConnection()->error);
         if($result >= 0) {
             return true;

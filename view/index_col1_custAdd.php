@@ -4,12 +4,11 @@
         <div class="row">
             <div class="col-50">
                 <h3>Name</h3>
-                <input type="text"  name="name" id="name" placeholder="Booking Name" required/>
+                <input type="text"  name="name" id="name" placeholder="Booking name"/>
             </div>
             <div class="col-50">
                 <h3>Preferences</h3>
-                <input id="priority" type="checkbox" name="priority" value="True"/> Priority
-                <input id="priorityHidden" type="hidden" name="priority" value="False"/>
+                <input id="priority" type="checkbox" name="priority" value="1"/> Priority
                 <br/>
             </div>
         </div>
@@ -56,16 +55,16 @@
             <h3>From:</h3>
             <div class="row">
                 <div class="col-50">
-                    <input type="text" id="houseNumber" name="houseNumber" placeholder="House Number / Name" required/>
+                    <input type="text" id="houseNumber" name="houseNumber" placeholder="House Number / Name"/>
                 </div>
                 <div class="col-50">
-                    <input type="text" id="postcode" name="postcode" placeholder="Post Code" required/>
+                    <input type="text" id="postcode" name="postcode" placeholder="Post Code"/>
                 </div>
             </div>
-            <input type="text" id="street" name="street" placeholder="Street Name" required/>
+            <input type="text" id="street" name="street" placeholder="Street Name"/>
             <div class="row">
                 <div class="col-75">
-                    <input type="text" id="city" name="city" placeholder="City/Town" required/>
+                    <input type="text" id="city" name="city" placeholder="City/Town"/>
                 </div>
                 <div class="col-25">
                     <button id="confirm" value="Confirm" class="confirm" disabled>Confirm</button>
@@ -78,16 +77,16 @@
             <h3>Destination:</h3>
             <div class="row">
                 <div class="col-50">
-                    <input type="text" id="destinationHouseNo" name="toHouseNumber" placeholder="House Number / Name" required/>
+                    <input type="text" id="destinationHouseNo" name="toHouseNumber" placeholder="House Number / Name"/>
                 </div>
                 <div class="col-50">
-                    <input type="text" id="destinationPostcode" name="toPostcode" placeholder="Post Code" required/>
+                    <input type="text" id="destinationPostcode" name="toPostcode" placeholder="Post Code"/>
                 </div>
             </div>
-            <input type="text" id="destinationStreet" name="toStreet" placeholder="Street Name" required/>
+            <input type="text" id="destinationStreet" name="toStreet" placeholder="Street Name"/>
             <div class="row">
                 <div class="col-75">
-                    <input type="text" id="destinationCity" name="toCity" placeholder="City/Town" required/>
+                    <input type="text" id="destinationCity" name="toCity" placeholder="City/Town"/>
                 </div>
                 <div class="col-25">
                     <button id="destinationConfirm" value="Confirm" class="confirm" disabled>Confirm</button>

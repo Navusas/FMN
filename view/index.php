@@ -2,8 +2,8 @@
 <html>
 <head>
     <!--      Include header structure  -->
-    <?php include('include_structure/head.php'); ?>
-    <title>Media Shop!</title>
+    <?php include('include_structure/head.php');?>
+    <title>Forget-Me-Not</title>
 </head>
 <body>
 <!--    Navigation Bar    -->

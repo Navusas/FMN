@@ -23,13 +23,20 @@ if (isset($_REQUEST)) {
 
 //core info
     $pickup = $_POST['pickup'];
-    $priority = $_POST['priority'];
+    if(isset($_POST['priority'])) {
+        $priority = $_POST['priority'];
+    }
+    else {
+        $priority = "0";
+    }
     $payment = $_POST['payment'];
 
 //    card payment details
     $cardNumber =$_POST['cardNumber'];
     $cardType = $_POST['cardType'];
     $cardExpiry = $_POST['cardExpiry'];
+//    echo "|||" . $cardNumber . "|||" . $cardType . " " . $cardExpiry;
+
 //from address variables
     $from_houseNo = $_POST['houseNumber'];
     $from_street = $_POST['street'];
@@ -45,8 +52,9 @@ if (isset($_REQUEST)) {
 
 
     $journey = new Journey();
-    $journey->addToQueue($time, $date, $name,50, $pickup, $priority, $payment,
+    $journey->addToQueue($time, $date, $name,getDistance(), $priority, $payment,
         $from_houseNo, $from_street, $from_city, $from_postcode,
-        $dest_houseNo, $dest_street, $dest_city, $dest_postcode);
+        $dest_houseNo, $dest_street, $dest_city, $dest_postcode,
+        $cardNumber, $cardType, $cardExpiry);
 }
 ?>

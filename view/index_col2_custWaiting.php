@@ -12,19 +12,22 @@
             </thead>
         </table>
     </div>
+    <?php
+    include('../dao/Queue.php');
+    include('../controller/loadQueue.php'); ?>
 
-    <div class="table100-body js-pscroll">
-        <table>
-            <tbody>
-            <tr class="row100 body">
-                <td class="cell100">1</td>
-                <td class="cell100">University of Huddersfield</td>
-                <td class="cell100">Odeon, Leeds Road</td>
-                <td class="cell100">12m</td>
-                <td class="cell100">No</td>
-                <td class="cell100">X</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+
+<!--    <div class="table100-body js-pscroll">-->
+<!--        <table>-->
+<!--            <tbody>-->
+<!--            <tr class="row100 body">-->
+<!--                <td class="cell100 width-5">1</td>-->
+<!--                <td class="cell100 width-30">University of Huddersfield</td>-->
+<!--                <td class="cell100 width-40">Odeon, Leeds Road</td>-->
+<!--                <td class="cell100 width-10">No</td>-->
+<!--                <td class="cell100 width-5">X</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
 </div>
