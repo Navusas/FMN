@@ -22,9 +22,10 @@ class Journey extends DAO {
         $to = $dest_houseNo . ", " . $dest_street . ", ". $dest_city . ", " . $dest_postcode;
 
         $lastID = $this->getLastID($this->table, $this->idField)+1;
+        echo $lastID;
 
         // add a Journey FIrst
-//        $journeyID = $this->addJourney($miles,$date,$time,$from,$to,$priority);
+        $journeyID = $this->addJourney($miles,$date,$time,$from,$to,$priority);
         // Make a relationship between payment and Journey
 //        $paymentQuery = $this->addPayment($journeyID, $miles, $date, $payment);
 
@@ -41,7 +42,7 @@ class Journey extends DAO {
         $table = "journey";
         $lastID = $this->getLastID($table, $this->idField)+1;
         $query = 'INSERT INTO ' . $table .
-                ' VALUES(' . $lastID . ',' . $miles . ',"' . $date . '",TIME("' . $time .'")), "' .
+                ' VALUES(' . $lastID . ',' . $miles . ',"' . $date . '",TIME("' . $time .'"), "' .
                         $from . '","' . $to  . '",' . $priority . ')';
         $result = parent::query($query) or die(parent::getConnection()->getConnection()->error);
         if($result >= 0) {
@@ -66,20 +67,15 @@ class Journey extends DAO {
     }
     public function getLastID($table, $idField) {
 //        $query = 'SELECT ID FROM journey ORDER BY ID DESC LIMIT 1';
-         parent::query('SELECT ' . $idField .
-                                ' FROM ' . $table .
-                                ' ORDER BY ' . $idField .
-                                ' DESC LIMIT 1')->fetch_object()
-                                or die(parent::getConnection()->getConnection()->error);
 
-        $result = parent::query('SELECT ' . $this->idField .
-            ' FROM ' . $this->table .
-            ' ORDER BY ' . $this->idField .
-            ' DESC LIMIT 1')->fetch_assoc()
-        or die(parent::getConnection()->getConnection()->error);
+        $result = parent::query('SELECT ' . $idField .
+            ' FROM ' . $table .
+            ' ORDER BY ' . $idField .
+            ' DESC LIMIT 1')->fetch_assoc();
+
         if($result >=0) {
             return $result['ID'];
         }
-        else return 1;
+        else return 0;
     }
 }
