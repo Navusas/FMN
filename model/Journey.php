@@ -24,7 +24,7 @@ class Journey extends DAO {
         $lastID = $this->getLastID($this->table, $this->idField)+1;
 
         // add a Journey FIrst
-        $journeyID = $this->addJourney($miles,$date,$time,$from,$to,$priority);
+//        $journeyID = $this->addJourney($miles,$date,$time,$from,$to,$priority);
         // Make a relationship between payment and Journey
 //        $paymentQuery = $this->addPayment($journeyID, $miles, $date, $payment);
 
@@ -71,11 +71,15 @@ class Journey extends DAO {
                                 ' ORDER BY ' . $idField .
                                 ' DESC LIMIT 1')->fetch_object()
                                 or die(parent::getConnection()->getConnection()->error);
+
         $result = parent::query('SELECT ' . $this->idField .
             ' FROM ' . $this->table .
             ' ORDER BY ' . $this->idField .
             ' DESC LIMIT 1')->fetch_assoc()
         or die(parent::getConnection()->getConnection()->error);
-        return $result['ID'];
+        if($result >=0) {
+            return $result['ID'];
+        }
+        else return 1;
     }
 }
