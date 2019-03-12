@@ -11,21 +11,21 @@
         <div class="row">
             <div class="col-50">
                 <h3>Name</h3>
-                <input type="text"  name="name" id="name" placeholder="First Name"/>
+                <input type="text" name="name" id="name" placeholder="First Name"/>
             </div>
             <div class="col-50">
                 <h3>Surname</h3>
-                <input type="text"  name="surname" id="surname" placeholder="Last Name"/>
+                <input type="text" name="surname" id="surname" placeholder="Last Name"/>
             </div>
         </div>
         <div class="row">
             <div class="col-50">
                 <h3>Date Of Birth</h3>
-                <input type="text"  name="DOB" id="dob" placeholder="31/12/1998"/>
+                <input type="text" name="DOB" id="dob" placeholder="31/12/1998"/>
             </div>
             <div class="col-50">
                 <h3>NIN</h3>
-                <input type="text"  name="nin" id="nin" placeholder="NIN"/>
+                <input type="text" name="nin" id="nin" placeholder="NIN"/>
             </div>
         </div>
         <!--           ADDRESS        -->

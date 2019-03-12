@@ -190,7 +190,6 @@ $(document).ready(function () {
 
 
     $('#addCustomerSubmitButton').click(function () {
-        if ($('#addCustomerForm').valid()) {
             var data = $("#addCustomerForm").serialize();
             $.ajax({
                 data: data,
@@ -215,7 +214,6 @@ $(document).ready(function () {
 
                 }
             });
-        }
     });
 
 

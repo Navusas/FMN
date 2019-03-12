@@ -17,7 +17,7 @@
 </div>
 <div class="main_container">
     <div class="column">
-        <input id="queueAddDriver" type="button" value="Add New Driver" class="btn">
+        <input id="addDriver" type="button" value="Add New Driver" class="btn">
         <div class="columnHeader">
             <p>Drivers Detailed Information</p>
         </div>
@@ -55,7 +55,7 @@
                 $("#hiddenAddDriver").css('display','none');
             }
         });
-        $('#queueAddDriver').click(function() {
+        $('#addDriver').click(function() {
             if($('#hiddenAddDriver').css('display') === 'none') {
                 $('#hiddenAddDriver').css('display','block');
                 $('#hiddenAddDriverContainer').css({"display" : "block",
