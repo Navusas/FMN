@@ -5,9 +5,9 @@ class Connection
 //    Parameters to connect to database
     private $connection;
     private $host = "localhost";
-    private $user = "root";
-    private $pass = "";
-    private $db = "taxifriend";
+    private $user = "u1751546";
+    private $pass = "03jan98";
+    private $db = "u1751546";
 
     public function __construct()
     {

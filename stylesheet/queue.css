@@ -1,0 +1,150 @@
+.btn {
+    font-size: 18px;
+    /*text-transform: uppercase;*/
+    background-color: #4d82ff;
+    border: none;
+    /*color: white;*/
+    padding: 16px 128px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background-color: blue;
+    letter-spacing: 3px;
+}
+
+#hiddenAddQueue, #hiddenAddDriver {
+    display: none; /* Hidden by default */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+#hiddenAddQueueContainer, #hiddenAddDriverContainer{
+    background-color: #fefefe;
+    margin: 5% auto 30% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+/*.cellButton > button {*/
+    /*border: none;*/
+    /*outline: none;*/
+    /*background-color: red;*/
+    /*display: inline-block;*/
+    /*height: 40px;*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*vertical-align: top;*/
+    /*width: 80px;*/
+    /*cursor:pointer;*/
+    /*color:white;*/
+    /*border-radius: 3px;*/
+/*}*/
+
+.delete {
+    border: none;
+    outline: none;
+    background-color: red;
+    display: inline-block;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    width: 70px;
+    cursor:pointer;
+    color:white;
+    border-radius: 10px;
+    -webkit-transition:  0.3s;
+    -moz-transition:  0.3s;
+    -ms-transition:  0.3s;
+    -o-transition:  0.3s;
+    transition:  0.3s;
+}
+
+.delete:hover {
+    background-size: 50px 50px;
+    height: 35px;
+    width: 90px;
+}
+
+.cellbuttonIndex > button {
+    cursor:pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    display: inline-block;
+    height: 28px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    width: 28px;
+}
+.deleteIndex {
+    background-image: url('../view/Sprites/img/delete.png');
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+    height: 28px;
+    width: 28px;
+    -webkit-transition:  0.3s;
+    -moz-transition:  0.3s;
+    -ms-transition:  0.3s;
+    -o-transition:  0.3s;
+    transition:  0.3s;
+}
+.deleteIndex:hover {
+    background-size: 36px 36px;
+    height: 36px;
+    width: 36px;
+}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    /*font-size: 16px;*/
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9999;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.cursorPointer {
+    cursor:pointer;
+}

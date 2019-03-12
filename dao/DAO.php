@@ -51,4 +51,12 @@ class DAO extends Connection {
         }
         return $films;
     }
+    public function getAllByTable($table) {
+        $films = array();
+        $result = parent::query('SELECT * FROM ' . $table);
+        while ($record = $result->fetch_object()) {
+            array_push($films, $record);
+        }
+        return $films;
+    }
 }

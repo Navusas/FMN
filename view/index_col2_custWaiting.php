@@ -6,15 +6,16 @@
                 <th class="cell100 width-5">No</th>
                 <th class="cell100 width-30">Name</th>
                 <th class="cell100 width-40">From</th>
-                <th class="cell100 width-10">Assigned</th>
-                <th class="cell100 width-5">X</th>
+                <th class="cell100 width-10"><img class="tableImg"src="Sprites/img/steeringWheel.png"></th>
+                <th class="cell100 width-5">Del?</th>
             </tr>
             </thead>
         </table>
     </div>
     <?php
-    include('../dao/Queue.php');
-    include('../controller/loadQueue.php'); ?>
+        include('../dao/Queue.php');
+        include('loadView/indexLoadQueue.php');
+    ?>
 
 
 <!--    <div class="table100-body js-pscroll">-->

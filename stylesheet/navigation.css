@@ -9,6 +9,7 @@
     height: 53px;
     min-width: 110vh;
     overflow: hidden;
+    z-index:999;
 }
 
 /*Container within a main navigation container*/

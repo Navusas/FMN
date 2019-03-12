@@ -9,22 +9,23 @@ foreach($queue->getAll() as $each) {
                     <tr class="row100 body">
 	                    ' . // Id in queue
         '
-                        <td class="cell100 width-5">' . $each->ID . '</td>
+                        <td class="cell100 width-5 shift">' . $each->ID . '</td>
                         ' . // name
         '
-                        <td class="cell100 width-30">' . $each_customer['Name'] . '</td>
+                        <td class="cell100 width-30">' . $each_customer->Name . '</td>
                         ' . // From
         '
-                        <td class="cell100 width-40">'. $each_journey['From'] . '</td>
+                        <td class="cell100 width-40">'. $each_journey->From . '</td>
                         ' . // To
         '
-                        <td class="cell100 width-10">'  . $queue->isDriverAssigned($each->ID) . '</td>
+                        <td class="cell100 width-10 shift">'  . $queue->isDriverAssigned($each->ID) . '</td>
                         ' . // Is Driver Assigned
         '
-                        <td class="cell100 width-5">X</td>
+                        <td class="cell100 width-10 shift cellbuttonIndex"><button class="deleteIndex" onclick="confirmDeletion(' . $each->ID . ',\'' . $each_customer->Name . '\');"</button></td>
                     </tr>
                     </tbody>
                 </table>
             </div>';
 }
 ?>
+<script src="scripts/queueDelete.js"></script>

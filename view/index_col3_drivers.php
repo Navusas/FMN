@@ -12,17 +12,20 @@
             </thead>
         </table>
     </div>
+    <?php
+        include('loadView/indexLoadDrivers.php');
+    ?>
 
-    <div class="table100-body js-pscroll">
-        <table>
-            <tbody>
-            <tr class="row100 body">
-                <td class="cell100 column1">1</td>
-                <td class="cell100 column2">Hugh Gates</td>
-                <td class="cell100 column3 shift">06:00 - 18:00</td>
-                <td class="cell100 column4">12</td>
-                <td class="cell100 column5">Yes</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+<!--    <div class="table100-body js-pscroll">-->
+<!--        <table>-->
+<!--            <tbody>-->
+<!--            <tr class="row100 body">-->
+<!--                <td class="cell100 width-5">1</td>-->
+<!--                <td class="cell100 width-40">Hugh Gates</td>-->
+<!--                <td class="cell100 width-35">06:00 - 18:00</td>-->
+<!--                <td class="cell100 width-10">12</td>-->
+<!--                <td class="cell100 width-10">Yes</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->

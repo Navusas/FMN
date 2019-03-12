@@ -1,3 +1,25 @@
+.table100.ver1 {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+}
+
+.table100.ver1 .ps__rail-y {
+    right: 5px;
+}
+
+.table100.ver1 .ps__rail-y::before {
+    background-color: #ebebeb;
+}
+
+.table100.ver1 .ps__rail-y .ps__thumb-y::before {
+    background-color: #cccccc;
+}
+
 .success-outer-div {
     position: fixed;
     top: 50%;
@@ -46,14 +68,16 @@
     order: 2;
 }
 
-.newCustomerForm {
+.newCustomerForm, .newDriverForm {
     background-color: #f2f2f2;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgrey;
     border-radius: 3px;
 }
 
-.newCustomerForm input[type=text], input[type=password], input[type=email] {
+.newCustomerForm input[type=text], input[type=password], input[type=email],
+.newDriverForm input[type=text], input[type=password], input[type=email]
+{
     width: 100%;
     border: none;
     border-bottom: 2px solid #FEA2A2;
@@ -65,7 +89,8 @@
     outline: none;
 }
 
-.newCustomerForm .confirm {
+.newCustomerForm .confirm,
+.newDriverForm .confirm{
     float: right;
     background-color: #4d82ff;
     padding: 8px 10px;
@@ -79,25 +104,34 @@
     width: 100px;
 }
 
-.newCustomerForm .confirm:disabled {
+.newCustomerForm .confirm:disabled,
+.newDriverForm .confirm:disabled{
     background-color: grey;
     cursor: no-drop;
 }
 
-.newCustomerForm .confirm:hover {
+
+.newCustomerForm .confirm:hover,
+.newDriverForm .confirm:hover{
     /*background-color: blue;*/
 }
 
 .newCustomerForm input[type=text]:focus,
 .newCustomerForm input[type=password]:focus,
-.newCustomerForm input[type=email]:focus {
+.newCustomerForm input[type=email]:focus,
+.newDriverForm input[type=text]:focus,
+.newDriverForm input[type=password]:focus,
+.newDriverForm input[type=email]:focus{
     border: 1px solid #FE3636;
     background-color: #f9f9f2;
 }
 
 .newCustomerForm input[type=submit],
 .newCustomerForm input[type=reset],
-.newCustomerForm input[type=button] {
+.newCustomerForm input[type=button],
+.newDriverForm input[type=submit],
+.newDriverForm input[type=reset],
+.newDriverForm input[type=button] {
     font-size: 18px;
     text-transform: uppercase;
     background-color: #4d82ff;
@@ -112,7 +146,9 @@
 }
 
 .newCustomerForm input[type=submit]:hover,
-.newCustomerForm input[type=button]:hover {
+.newCustomerForm input[type=button]:hover,
+.newDriverForm input[type=submit]:hover,
+.newDriverForm input[type=button]:hover{
     background-color: blue;
     letter-spacing: 3px;
 }
@@ -177,7 +213,7 @@ label {
 .table100 .ps__rail-y::before {
     content: "";
     display: block;
-    position: absolute;
+    position: fixed;
     background-color: #ebebeb;
     border-radius: 5px;
     width: 100%;
@@ -315,6 +351,9 @@ th, td {
     max-height: 585px;
     overflow: auto;
 }
+.table100-body:hover {
+    background-color:#fbf069;
+}
 
 /*==================================================================
 [ Ver1 ]*/
@@ -339,29 +378,7 @@ th, td {
     background-color: #f8f6ff;
 }
 
-/*---------------------------------------------*/
-
-.table100.ver1 {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
-    -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
-}
-
-.table100.ver1 .ps__rail-y {
-    right: 5px;
-}
-
-.table100.ver1 .ps__rail-y::before {
-    background-color: #ebebeb;
-}
-
-.table100.ver1 .ps__rail-y .ps__thumb-y::before {
-    background-color: #cccccc;
-}
+/*---------------------------------------------*
 
 /*To handle index_col1_custAdd.php jquerry validation (make the invalid text label red)*/
 .error {
@@ -371,3 +388,10 @@ th, td {
 /*.valid {*/
 /*color:green;*/
 /*}*/
+
+.tableImg {
+    height:20px;
+    width:20px;
+    margin:0;
+    padding:0;
+}

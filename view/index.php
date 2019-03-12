@@ -7,19 +7,11 @@
 </head>
 <body>
 <!--    Navigation Bar    -->
-<?php include('include_structure/NavigationBar.php'); ?>
+<?php include('include_structure/navigationBar.php'); ?>
 
 <!--      Main Container    -->
 <div class="main_container">
     <div class="flexbox">
-
-<!--        The absolute positioned container in the middle to show success messages
-            upon completing Add Customer request -->
-        <div class="success-outer-div">
-            <div class="success-inner-div">
-                <p id="success-message-displayed"></p>
-            </div>
-        </div>
 
         <!--              COLUMN 1      -->
         <div class="column">

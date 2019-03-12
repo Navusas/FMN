@@ -1,3 +1,11 @@
+<!--        The absolute positioned container in the middle to show success messages
+            upon completing Add Customer request -->
+<div class="success-outer-div">
+    <div class="success-inner-div">
+        <p id="success-message-displayed"></p>
+    </div>
+</div>
+
 <form id="addCustomerForm" method="POST">
     <div class="newCustomerForm">
 

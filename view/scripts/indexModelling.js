@@ -88,6 +88,38 @@ $(document).ready(function () {
            height:'hide'
         });
     }
+    function clearAddDriverField() {
+        //name
+        $('#name').val("");
+
+        // time value form booking time
+        $('#surname').text("");
+        //from
+        $('#houseNumber').val("");
+        $('#postcode').val("");
+        $('#street').val("");
+        $('#city').val("");
+
+        //to
+        $('#registration').val("");
+        $('#make').val("");
+        $('#model').val("");
+        $('#capacity').val("");
+    }
+    $("#addDriverForm").validate({
+        rules: {
+            name: "required",
+            surname: "required",
+            houseNumber: "required",
+            postcode: "required",
+            street: "required",
+            city: "required",
+            registration: "required",
+            make: "required",
+            model: "required",
+            capacity: "required"
+        }
+    });
 
     $('input[name=payment][id=paymentCash]').change(function() {
         $("#addCustomerForm").validate({
@@ -165,6 +197,9 @@ $(document).ready(function () {
                 type: "post",
                 url: "../controller/AddJourney.php",
                 success: function (data) {
+                    if($('#hiddenAddQueue').css('display') === 'block') {
+                        $('#hiddenAddQueue').css('display', 'none');
+                    }
                     // display the successful div messsage container
                     $('.success-outer-div').show();
 
@@ -174,8 +209,10 @@ $(document).ready(function () {
                     // set timeout for displayed success message
                     setTimeout(function () {
                         $('.success-outer-div').fadeOut('fast');
-                    }, 5000); // <-- time in milliseconds
+                        location.reload(true);
+                    }, 3000); // <-- time in milliseconds
                     clearAddCustomerFields();
+
                 }
             });
         }
@@ -191,6 +228,35 @@ $(document).ready(function () {
         // If the target of the click isn't the container
         if (!container.is(e.target) && container.has(e.target).length === 0) {
             container.hide();
+        }
+    });
+
+    $('#addDriverButton').click(function () {
+        if ($('#addDriverForm').valid()) {
+            var data = $("#addDriverForm").serialize();
+            $.ajax({
+                data: data,
+                type: "post",
+                url: "../controller/AddDriver.php",
+                success: function (data) {
+                    if($('#hiddenAddQueue').css('display') === 'block') {
+                        $('#hiddenAddQueue').css('display', 'none');
+                    }
+                    // display the successful div messsage container
+                    $('.success-outer-div').show();
+
+                    // set the container <p> element to the data echoed by Journey.php (from AddJourney.php)
+                    $('#success-message-displayed').text(data);
+
+                    // set timeout for displayed success message
+                    setTimeout(function () {
+                        $('.success-outer-div').fadeOut('fast');
+                        location.reload(true);
+                    }, 3000); // <-- time in milliseconds
+                    clearAddDriverFields();
+
+                }
+            });
         }
     });
 });
