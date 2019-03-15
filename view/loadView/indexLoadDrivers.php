@@ -3,8 +3,6 @@ $queue = new Queue();
 foreach ($queue->getAllDrivers() as $each) {
     $employeeInfo = $queue->getEmployeeInfo($each->EmployeeID);
     $vehicleInfo = $queue->getVehicle($employeeInfo->ID);
-
-
     echo '<div class="table100-body js-pscroll">
                 <table>
                     <tbody>

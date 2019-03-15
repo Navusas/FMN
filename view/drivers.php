@@ -37,33 +37,36 @@
                     </thead>
                 </table>
             </div>
-            <?php include('loadView/load_drivers.php'); ?>
+            <?php
+            include('../dao/Queue.php');
+            include('loadView/load_drivers.php');
+            ?>
         </div>
     </div>
     <!--    Footer!    -->
     <?php include('include_structure/footer.php'); ?>
 
     <script>
-        $(document).mouseup(function(e)
-        {
+        $(document).mouseup(function (e) {
             var container = $("#hiddenAddDriverContainer");
 
             // if the target of the click isn't the container nor a descendant of the container
-            if (!container.is(e.target) && container.has(e.target).length === 0)
-            {
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
                 container.hide();
-                $("#hiddenAddDriver").css('display','none');
+                $("#hiddenAddDriver").css('display', 'none');
             }
         });
-        $('#addDriver').click(function() {
-            if($('#hiddenAddDriver').css('display') === 'none') {
-                $('#hiddenAddDriver').css('display','block');
-                $('#hiddenAddDriverContainer').css({"display" : "block",
-                    "width" : "50%",
-                    "background-color" : "#fefefe",
+        $('#addDriver').click(function () {
+            if ($('#hiddenAddDriver').css('display') === 'none') {
+                $('#hiddenAddDriver').css('display', 'block');
+                $('#hiddenAddDriverContainer').css({
+                    "display": "block",
+                    "width": "50%",
+                    "background-color": "#fefefe",
                     "margin": "5% auto 50% auto",
-                    "border" : "1pd solid #888",
-                    "padding": "auto"});
+                    "border": "1pd solid #888",
+                    "padding": "auto"
+                });
             }
         });
 

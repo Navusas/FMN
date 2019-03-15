@@ -120,6 +120,19 @@ $(document).ready(function () {
             capacity: "required"
         }
     });
+    $("#addCustomerForm").validate({
+        rules: {
+            name: "required",
+            houseNumber: "required",
+            postcode: "required",
+            street: "required",
+            city: "required",
+            toHouseNumber: "required",
+            toStreet: "required",
+            toCity: "required",
+            toPostcode: "required"
+        }
+    });
 
     $('input[name=payment][id=paymentCash]').change(function() {
         $("#addCustomerForm").validate({
@@ -190,6 +203,7 @@ $(document).ready(function () {
 
 
     $('#addCustomerSubmitButton').click(function () {
+        if ($('#addCustomerForm').valid()) {
             var data = $("#addCustomerForm").serialize();
             $.ajax({
                 data: data,
@@ -214,6 +228,7 @@ $(document).ready(function () {
 
                 }
             });
+        }
     });
 
 
@@ -251,8 +266,7 @@ $(document).ready(function () {
                         $('.success-outer-div').fadeOut('fast');
                         location.reload(true);
                     }, 3000); // <-- time in milliseconds
-                    clearAddDriverFields();
-
+                    clearAddDriverField();
                 }
             });
         }

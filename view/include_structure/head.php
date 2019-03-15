@@ -20,7 +20,7 @@
 <!-------------------------------------------------------------->
 <script src="../lib/TimePicker/jquery.timepicker.min.js"></script>
 <!-------Required to Validate Forms using [input=Button[-------->
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="../lib/validation.js"></script>
 
 
 
